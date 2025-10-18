@@ -6,7 +6,7 @@ Three short levels, spooky calm atmosphere, and simple melee combat using your a
 
 ---
 
-## 👥 Team
+## 👥 Team!
 
 | Role | Name | Focus |
 |------|------|--------|
