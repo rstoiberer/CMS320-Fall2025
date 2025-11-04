@@ -6,10 +6,10 @@ Three short levels, spooky calm atmosphere, and simple melee combat using your a
 
 ---
 
-## 👥 Team!
+## Team
 
 | Role | Name | Focus |
 |------|------|--------|
-| 🎮 **Level & Game Design / General Project Manager** | **Richard Stoiberer** | Layouts, pacing, coordinating the vision |
-| 💻 **Gameplay Programmer / Technical Lead** | **Stella Fruijtier** | Core mechanics, physics, and game systems |
-| 🎨 **Artist / Audio & UI Designer** | **Sydney Eckstein** | Sprites, audio, world atmosphere, cutscene |
+|  **Level & Game Design / General Project Manager** | **Richard Stoiberer** | Layouts, pacing, coordinating the vision |
+|  **Gameplay Programmer / Technical Lead** | **Stella Fruijtier** | Core mechanics, physics, and game systems |
+|  **Artist / Audio & UI Designer** | **Sydney Eckstein** | Sprites, audio, world atmosphere, cutscene |
