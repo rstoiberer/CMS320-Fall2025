@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 31876383}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 162455035}
   - component: {fileID: 162455036}
   - component: {fileID: 162455037}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Platform3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 371147138}
   - component: {fileID: 371147139}
   - component: {fileID: 371147140}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Platform5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 379292338}
   - component: {fileID: 379292339}
   - component: {fileID: 379292340}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Platform4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   - component: {fileID: 497618081}
   - component: {fileID: 497618082}
   - component: {fileID: 497618083}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GatewallRemovable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +653,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: b288fc88a8f3a4ec1b0aeff58d1fa135, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8679245, g: 0.10234957, b: 0.10234957, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -720,7 +720,7 @@ GameObject:
   - component: {fileID: 562743132}
   - component: {fileID: 562743133}
   - component: {fileID: 562743134}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -857,7 +857,7 @@ GameObject:
   - component: {fileID: 1003652933}
   - component: {fileID: 1003652934}
   - component: {fileID: 1003652935}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Platform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 1297088596}
   - component: {fileID: 1297088597}
   - component: {fileID: 1297088598}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sidewall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1131,7 +1131,7 @@ GameObject:
   - component: {fileID: 1462618871}
   - component: {fileID: 1462618872}
   - component: {fileID: 1462618873}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Platform1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1268,7 +1268,7 @@ GameObject:
   - component: {fileID: 1654080483}
   - component: {fileID: 1654080484}
   - component: {fileID: 1654080485}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GatewallStatic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1394,6 +1394,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1835584445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1835584446}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1835584446
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835584445}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1929810960}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1852864135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,7 +1686,8 @@ Transform:
   m_LocalPosition: {x: -6.12, y: -2.13, z: 0}
   m_LocalScale: {x: 0.2625, y: 0.2125, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1835584446}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1929810961
@@ -1684,7 +1716,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1929810962
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1719,7 +1751,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.68820316, y: -0.01889205}
+  m_Offset: {x: 0.76507926, y: -0.41457403}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1729,7 +1761,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.8842043, y: 4.1222157}
+  m_Size: {x: 1.7304521, y: 3.3308518}
   m_EdgeRadius: 0
 --- !u!114 &1929810963
 MonoBehaviour:
@@ -1746,6 +1778,11 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 7
   artworkFacesRight: 0
+  groundCheck: {fileID: 1835584446}
+  groundRadius: 0.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!95 &1929810964
 Animator:
   serializedVersion: 7
@@ -1779,7 +1816,7 @@ GameObject:
   - component: {fileID: 1947404662}
   - component: {fileID: 1947404663}
   - component: {fileID: 1947404664}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1916,7 +1953,7 @@ GameObject:
   - component: {fileID: 2044336348}
   - component: {fileID: 2044336349}
   - component: {fileID: 2044336350}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
