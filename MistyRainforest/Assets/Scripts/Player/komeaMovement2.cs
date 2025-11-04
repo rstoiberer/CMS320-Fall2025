@@ -23,7 +23,11 @@ public class KomeaMovement2 : MonoBehaviour
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
-        sr  = GetComponentInChildren<SpriteRenderer>();
+        sr = GetComponentInChildren<SpriteRenderer>();
+
+        body.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        body.interpolation = RigidbodyInterpolation2D.Interpolate;
+        body.freezeRotation = true;
     }
 
     private void Update()
