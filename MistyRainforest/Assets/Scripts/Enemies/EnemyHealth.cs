@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public static System.Action<EnemyHealth, int> Damaged;
+    public static System.Action OnAnyEnemyDied;
 
     [SerializeField] private int maxHealth = 3; // number of hits to kill
     [SerializeField] private Color hurtColor = new Color(1f, 0.6f, 0.6f);
@@ -48,6 +49,7 @@ public class EnemyHealth : MonoBehaviour
         foreach (var c in GetComponents<Collider2D>()) c.enabled = false;
         var rb = GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = false;
+        OnAnyEnemyDied?.Invoke();
         Destroy(gameObject, deathDelay);
     }
 }

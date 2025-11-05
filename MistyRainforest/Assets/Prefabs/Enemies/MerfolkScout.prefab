@@ -198,16 +198,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38894b574248d46d4928f5b5e3529b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 1.5
+  speed: 0.5
   patrolDistance: 0.5
   startFacingRight: 0
   pauseAtEnds: 0.15
   player: {fileID: 0}
   playerPlatform: {fileID: 0}
-  aggroDistance: 7
+  aggroDistance: 1.5
   chaseSpeed: 2
   accel: 15
-  preferredStopDistance: 0.9
+  preferredStopDistance: 0.55
   attackRange: 0.8
   reactionDelayOnAggro: 0.25
   attackWindup: 0.22
@@ -215,6 +215,10 @@ MonoBehaviour:
   attackCooldown: 0.6
   attackHitbox: {fileID: 5420906401009540761}
   animator: {fileID: 0}
+  requireSamePlatform: 0
+  debugLog: 0
+  touchEpsilon: 0.05
+  microStepSpeed: 0.8
 --- !u!114 &4977684496529360798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,10 +232,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformDetector
   groundCheck: {fileID: 8221340876333112599}
-  groundCheckRadius: 0.08
+  groundCheckRadius: 0.12
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  showGizmos: 0
 --- !u!1 &2000846946944931969
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +262,7 @@ Transform:
   m_GameObject: {fileID: 2000846946944931969}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.3, y: -1.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

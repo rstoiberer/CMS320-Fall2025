@@ -3,26 +3,27 @@ using System.Linq;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlatformDetector))]
+[DisallowMultipleComponent]
 public class EnemyScout : MonoBehaviour
 {
     public enum State { Patrol, Chase, Attack, Cooldown }
 
     [Header("Patrol")]
-    [SerializeField] private float speed = 2f;          // units/second
-    [SerializeField] private float patrolDistance = 2f; // half-length from the start point
+    [SerializeField] private float speed = 0.5f;          // slow patrol
+    [SerializeField] private float patrolDistance = 2f;   // half-length from the start point
     [SerializeField] private bool startFacingRight = true;
-    [SerializeField] private float pauseAtEnds = 0.15f; // optional pause when turning
+    [SerializeField] private float pauseAtEnds = 0.15f;   // optional pause when turning
 
     [Header("Player (auto-wired if left empty)")]
     [SerializeField] private Transform player;                 // Komea
     [SerializeField] private PlatformDetector playerPlatform;  // Komea's PlatformDetector
 
     [Header("Chase / Attack")]
-    [SerializeField] private float aggroDistance = 7f;         // only if same platform
+    [SerializeField] private float aggroDistance = 7f;         // only if same platform (optional)
     [SerializeField] private float chaseSpeed = 2.0f;
     [SerializeField] private float accel = 15f;
-    [SerializeField] private float preferredStopDistance = 0.9f; // stop slightly outside attack range
-    [SerializeField] private float attackRange = 0.8f;
+    [SerializeField] private float preferredStopDistance = 0.35f; // creep band before touching
+    [SerializeField] private float attackRange = 0.50f;          // visual aid; we now rely on touch check
     [SerializeField] private float reactionDelayOnAggro = 0.25f;
     [SerializeField] private float attackWindup = 0.22f;       // longer than player startup
     [SerializeField] private float attackActiveTime = 0.12f;
@@ -30,16 +31,28 @@ public class EnemyScout : MonoBehaviour
     [SerializeField] private AttackHitbox attackHitbox;        // child trigger; enabled only during active frames
     [SerializeField] private Animator animator;                // optional
 
+    [Header("Detection Options")]
+    [SerializeField] private bool requireSamePlatform = true;  // if off: distance only
+    [SerializeField] private bool debugLog = false;
+
+    [Header("Contact Handling (no shove)")]
+    [SerializeField] private float touchEpsilon = 0.05f;       // <= this means “touching”
+    [SerializeField] private float microStepSpeed = 0.8f;      // gentle creep when near
+
+    // components / helpers
     private Rigidbody2D rb;
     private PlatformDetector selfPlatform;
+    private Collider2D selfCol;
+    private Collider2D playerCol;
 
+    // patrol state
     private float startX;
-    private int dir;            // +1 right, -1 left
+    private int dir;             // +1 right, -1 left
     private bool pausing;
 
+    // fsm
     private State state = State.Patrol;
     private bool attacking;
-    private Coroutine attackCR;
     private float cooldownEndTime;
     private float aggroReadyTime;
 
@@ -47,7 +60,7 @@ public class EnemyScout : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         selfPlatform = GetComponent<PlatformDetector>();
-
+        selfCol = GetComponent<Collider2D>();
         startX = transform.position.x;
         dir = startFacingRight ? 1 : -1;
 
@@ -57,14 +70,33 @@ public class EnemyScout : MonoBehaviour
             var pObj = GameObject.FindGameObjectWithTag("Player"); // Komea must have Tag = "Player"
             if (pObj != null) player = pObj.transform;
         }
-        if (playerPlatform == null && player != null)
+        if (player != null)
         {
-            playerPlatform = player.GetComponent<PlatformDetector>();
+            playerCol = player.GetComponent<Collider2D>() ??
+                        player.GetComponentInChildren<Collider2D>(true);
             if (playerPlatform == null)
-                playerPlatform = player.GetComponentsInChildren<PlatformDetector>(true).FirstOrDefault();
+            {
+                playerPlatform = player.GetComponent<PlatformDetector>() ??
+                                  player.GetComponentsInChildren<PlatformDetector>(true).FirstOrDefault();
+            }
         }
 
         if (attackHitbox != null) attackHitbox.enabled = false; // only on during active frames
+    }
+
+    void Start()
+    {
+        // In case player spawns after us
+        if (player == null)
+        {
+            var pObj = GameObject.FindGameObjectWithTag("Player");
+            if (pObj != null) player = pObj.transform;
+        }
+        if (player != null && playerCol == null)
+            playerCol = player.GetComponent<Collider2D>() ?? player.GetComponentInChildren<Collider2D>(true);
+        if (player != null && playerPlatform == null)
+            playerPlatform = player.GetComponent<PlatformDetector>() ??
+                             player.GetComponentsInChildren<PlatformDetector>(true).FirstOrDefault();
     }
 
     void FixedUpdate()
@@ -83,13 +115,12 @@ public class EnemyScout : MonoBehaviour
     {
         if (pausing || rb == null || !rb.simulated) return;
 
-        // move along X (keep your original patrol)
+        // move along X (patrol)
         rb.linearVelocity = new Vector2(dir * speed, rb.linearVelocity.y);
 
         // bounds check
         float left = startX - patrolDistance;
         float right = startX + patrolDistance;
-
         if ((dir > 0 && transform.position.x >= right) ||
             (dir < 0 && transform.position.x <= left))
         {
@@ -97,13 +128,13 @@ public class EnemyScout : MonoBehaviour
         }
 
         Face(dir);
-        SetAnim(speed: Mathf.Abs(rb.linearVelocity.x), chasing:false);
+        SetAnim(speed: Mathf.Abs(rb.linearVelocity.x), chasing: false);
 
-        // transition to chase if player is on SAME platform & in range
+        // transition to chase if visible
         if (CanSeePlayerOnSamePlatform(out float dxAbs))
         {
             aggroReadyTime = Time.time + reactionDelayOnAggro;
-            state = (dxAbs <= attackRange) ? State.Attack : State.Chase;
+            SetState((dxAbs <= attackRange) ? State.Attack : State.Chase);
         }
     }
 
@@ -119,68 +150,81 @@ public class EnemyScout : MonoBehaviour
     // ---------------- CHASE ----------------
     void DoChase()
     {
-        if (!CanSeePlayerOnSamePlatform(out float dxAbs))
+        if (!CanSeePlayerOnSamePlatform(out _))
         {
-            state = State.Patrol;
+            SetState(State.Patrol);
             return;
         }
 
         if (Time.time < aggroReadyTime)
         {
-            // brief hesitation for fairness
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
-            SetAnim(speed: 0f, chasing:true);
+            SetAnim(speed: 0f, chasing: true);
             return;
         }
 
         float dx = player.position.x - transform.position.x;
         float sign = Mathf.Sign(dx);
+        Face(sign);
 
-        // Stop just outside attack range to give player a poke window
-        if (dxAbs <= preferredStopDistance)
+        // Use true collider separation to avoid shoving
+        float sep = HorizontalSeparationToPlayer();
+
+        // 1) If touching/overlapping → stop and attack
+        if (sep <= touchEpsilon)
         {
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
-            Face(sign);
-
-            if (dxAbs <= attackRange && Mathf.Abs(rb.linearVelocity.y) < 0.05f)
+            if (!attacking && Mathf.Abs(rb.linearVelocity.y) < 0.05f)
                 StartAttack();
-
-            SetAnim(speed: 0f, chasing:true);
+            SetAnim(speed: 0f, chasing: true);
             return;
         }
 
+        // 2) If near but not yet touching → micro-step (no body-check)
+        if (sep <= preferredStopDistance)
+        {
+            float vxMicro = Mathf.MoveTowards(rb.linearVelocity.x, sign * microStepSpeed, accel * Time.fixedDeltaTime);
+            rb.linearVelocity = new Vector2(vxMicro, rb.linearVelocity.y);
+            SetAnim(speed: Mathf.Abs(rb.linearVelocity.x), chasing: true);
+            return;
+        }
+
+        // 3) Otherwise, normal chase
         float targetVx = sign * chaseSpeed;
         float vx = Mathf.MoveTowards(rb.linearVelocity.x, targetVx, accel * Time.fixedDeltaTime);
         rb.linearVelocity = new Vector2(vx, rb.linearVelocity.y);
-        Face(sign);
-
-        SetAnim(speed: Mathf.Abs(rb.linearVelocity.x), chasing:true);
+        SetAnim(speed: Mathf.Abs(rb.linearVelocity.x), chasing: true);
     }
 
     // ---------------- ATTACK ----------------
     void StartAttack()
     {
         if (attacking) return;
-        state = State.Attack;
-        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
-        attackCR = StartCoroutine(AttackRoutine());
+        SetState(State.Attack);
+        StartCoroutine(AttackRoutine());
     }
 
     System.Collections.IEnumerator AttackRoutine()
     {
         attacking = true;
-        SetAnim(attack:true);
+        SetAnim(attack: true);
 
-        // wind-up: player can interrupt by hitting first
+        // freeze horizontal during wind-up/active to avoid slide-shove
+        var savedVx = rb.linearVelocity.x;
+        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+
         yield return new WaitForSeconds(attackWindup);
 
         if (attackHitbox) attackHitbox.enabled = true;
         yield return new WaitForSeconds(attackActiveTime);
         if (attackHitbox) attackHitbox.enabled = false;
 
+        // stop for one more frame after hitbox ends
+        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+
         attacking = false;
         cooldownEndTime = Time.time + attackCooldown;
-        state = State.Cooldown;
+        SetState(State.Cooldown);
     }
 
     // ---------------- COOLDOWN ----------------
@@ -188,18 +232,36 @@ public class EnemyScout : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
         if (Time.time >= cooldownEndTime)
-            state = CanSeePlayerOnSamePlatform(out _) ? State.Chase : State.Patrol;
+            SetState(CanSeePlayerOnSamePlatform(out _) ? State.Chase : State.Patrol);
     }
 
     // ---------------- HELPERS ----------------
     bool CanSeePlayerOnSamePlatform(out float dxAbs)
     {
         dxAbs = 999f;
-        if (player == null || playerPlatform == null || selfPlatform == null) return false;
+        if (player == null) return false;
 
         dxAbs = Mathf.Abs(player.position.x - transform.position.x);
+
+        if (!requireSamePlatform)
+            return dxAbs <= aggroDistance;
+
+        if (playerPlatform == null || selfPlatform == null) return false;
         bool same = selfPlatform.IsOnSamePlatformAs(playerPlatform);
         return same && dxAbs <= aggroDistance;
+    }
+
+    float HorizontalSeparationToPlayer()
+    {
+        // Robust collider separation (<= 0 means overlapping)
+        if (selfCol != null && playerCol != null)
+        {
+            var d = Physics2D.Distance(selfCol, playerCol);
+            return d.distance; // already world-units; negative = penetrating
+        }
+
+        // Fallback: center distance (less accurate)
+        return Mathf.Abs(player.position.x - transform.position.x);
     }
 
     void Face(float sign)
@@ -216,5 +278,19 @@ public class EnemyScout : MonoBehaviour
         animator.SetFloat("speed", speed);
         animator.SetBool("isChasing", chasing);
         if (attack) animator.SetTrigger("attack");
+    }
+
+    void SetState(State s)
+    {
+        if (debugLog && s != state) Debug.Log($"[EnemyScout] {name} -> {s}");
+        state = s;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, aggroDistance);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

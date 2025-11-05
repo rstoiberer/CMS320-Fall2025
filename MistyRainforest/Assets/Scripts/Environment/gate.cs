@@ -1,10 +1,16 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class gate : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Collider2D gateCollider;
+    [SerializeField] private Collider2D gateCollider;   // blocking collider
     [SerializeField] private SpriteRenderer sr;
+
+    [Header("Enter Trigger (for scene load)")]
+    [SerializeField] private Collider2D enterTrigger;   // separate collider with IsTrigger = true
+    [SerializeField] private string nextSceneName = "Level_02";
+    [SerializeField] private float loadDelay = 0.15f;
 
     [Header("Unlock (visual feedback, still blocking)")]
     [SerializeField] private Color lockedTint   = Color.white;
@@ -17,6 +23,9 @@ public class gate : MonoBehaviour
     [SerializeField] private float fadeDelay = 0.15f;
     [SerializeField] private float fadeTime  = 0.6f;
 
+    // --- auto-check for remaining enemies (kept from your version) ---
+    [SerializeField] private float checkEvery = 0.25f;
+
     private bool unlocked;
     private bool faded;
 
@@ -25,6 +34,38 @@ public class gate : MonoBehaviour
         if (!gateCollider) gateCollider = GetComponent<Collider2D>();
         if (!sr) sr = GetComponent<SpriteRenderer>();
         if (sr) sr.color = lockedTint;
+
+        // make sure enter trigger starts disabled
+        if (enterTrigger)
+        {
+            enterTrigger.isTrigger = true;
+            enterTrigger.enabled = false;
+        }
+    }
+
+    private void Start()
+    {
+        StartCoroutine(CheckEnemiesLoop());
+    }
+
+    private System.Collections.IEnumerator CheckEnemiesLoop()
+    {
+        var wait = new WaitForSeconds(checkEvery);
+
+        while (!unlocked)
+        {
+#if UNITY_2022_2_OR_NEWER
+            int alive = FindObjectsByType<EnemyHealth>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).Length;
+#else
+            int alive = FindObjectsOfType<EnemyHealth>(includeInactive: false).Length;
+#endif
+            if (alive == 0)
+            {
+                Unlock(); // flash + fade away + enable trigger
+                yield break;
+            }
+            yield return wait;
+        }
     }
 
     public void Unlock()
@@ -36,7 +77,6 @@ public class gate : MonoBehaviour
 
     System.Collections.IEnumerator UnlockAndFade()
     {
-
         // Tint + pulse (still blocking)
         if (sr)
         {
@@ -59,10 +99,11 @@ public class gate : MonoBehaviour
         // Wait briefly (still blocking)
         yield return new WaitForSeconds(holdUnlocked + fadeDelay);
 
-        // Disable collider so the player can pass
-        if (gateCollider) gateCollider.enabled = false;
+        // Allow passage and enable enter trigger
+        if (gateCollider) gateCollider.enabled = false;     // no more blocking
+        if (enterTrigger) enterTrigger.enabled = true;      // now we can detect the player walking through
 
-        // Fade out
+        // Fade out sprite
         if (sr)
         {
             Color c = sr.color;
@@ -77,30 +118,21 @@ public class gate : MonoBehaviour
             }
             sr.enabled = false; // fully invisible
         }
-
     }
-    // --- Auto-check for remaining enemies ---
-[SerializeField] private float checkEvery = 0.25f;
-private bool checking;
 
-private void Start()
-{
-    StartCoroutine(CheckEnemiesLoop());
-}
-
-private System.Collections.IEnumerator CheckEnemiesLoop()
-{
-    var wait = new WaitForSeconds(checkEvery);
-
-    while (!unlocked)
+    // Player walks through the (now enabled) enter trigger
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        int alive = FindObjectsOfType<EnemyHealth>(includeInactive: false).Length;
-        if (alive == 0)
-        {
-            Unlock(); // flash + fade away
-            yield break;
-        }
-        yield return wait;
+        if (!unlocked) return;                      // only after unlock
+        if (!other.CompareTag("Player")) return;    // Komea must be Tag = Player
+
+        if (!string.IsNullOrEmpty(nextSceneName))
+            StartCoroutine(LoadNextAfterDelay());
     }
-}
+
+    private System.Collections.IEnumerator LoadNextAfterDelay()
+    {
+        if (loadDelay > 0f) yield return new WaitForSeconds(loadDelay);
+        SceneManager.LoadScene(nextSceneName);
+    }
 }
