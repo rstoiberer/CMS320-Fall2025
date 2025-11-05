@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public static System.Action<EnemyHealth, int> Damaged;
+
     [SerializeField] private int maxHealth = 3; // number of hits to kill
     [SerializeField] private Color hurtColor = new Color(1f, 0.6f, 0.6f);
     [SerializeField] private float hurtFlashTime = 0.1f;
@@ -21,6 +23,8 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         current -= amount;
+        
+        Damaged?.Invoke(this, current);
 
         if (sr) StartCoroutine(Flash());
 
