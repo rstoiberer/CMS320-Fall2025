@@ -4,6 +4,7 @@ public class KomeaMovement2 : MonoBehaviour
 {
     private Rigidbody2D body;
     private SpriteRenderer sr;
+    public Animator animator;
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
@@ -36,8 +37,17 @@ public class KomeaMovement2 : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
 
         // 2) Flip sprite by input
-        if (moveInput > 0.01f)          sr.flipX = !artworkFacesRight;
-        else if (moveInput < -0.01f)    sr.flipX =  artworkFacesRight;
+        if (moveInput > 0.01f){
+            sr.flipX = !artworkFacesRight;
+            animator.SetBool("isRunning", true);
+        }        
+        else if (moveInput < -0.01f){
+            sr.flipX =  artworkFacesRight;
+            animator.SetBool("isRunning", true);
+        }
+        else{
+            animator.SetBool("isRunning", false);
+        }   
 
         // 3) Jump only when grounded
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
