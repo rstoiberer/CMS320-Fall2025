@@ -1410,9 +1410,45 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1646594643}
     - target: {fileID: 1765054208666637390, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: attackWindup
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765054208666637390, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: touchEpsilon
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765054208666637390, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: attackCooldown
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765054208666637390, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
       propertyPath: playerPlatform
       value: 
       objectReference: {fileID: 1646594636}
+    - target: {fileID: 1765054208666637390, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: attackActiveTime
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765054208666637390, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: preferredStopDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782021986223674549, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782021986223674549, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782021986223674549, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782021986223674549, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8093718343929604014, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.022956
@@ -1452,14 +1488,6 @@ PrefabInstance:
     - target: {fileID: 8093718343929604014, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8221340876333112599, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 8221340876333112599, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2080,9 +2108,49 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1646594643}
     - target: {fileID: 1765054208666637390, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: attackWindup
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765054208666637390, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: touchEpsilon
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765054208666637390, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: attackCooldown
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765054208666637390, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
       propertyPath: playerPlatform
       value: 
       objectReference: {fileID: 1646594636}
+    - target: {fileID: 1765054208666637390, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: attackActiveTime
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765054208666637390, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: preferredStopDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782021986223674549, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782021986223674549, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782021986223674549, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782021986223674549, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285484377521589003, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8093718343929604014, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.08
