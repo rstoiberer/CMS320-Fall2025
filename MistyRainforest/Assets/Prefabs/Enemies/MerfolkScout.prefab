@@ -209,16 +209,23 @@ MonoBehaviour:
   accel: 15
   preferredStopDistance: 0.1
   attackRange: 0.8
-  reactionDelayOnAggro: 1
-  attackWindup: 0.18
+  reactionDelayOnAggro: 0.8
+  attackWindup: 0.3
   attackActiveTime: 0.15
   attackCooldown: 0.5
   attackHitbox: {fileID: 5420906401009540761}
   animator: {fileID: 0}
   requireSamePlatform: 0
+  verticalTolerance: 0.75
+  useLineOfSight: 1
+  losBlockers:
+    serializedVersion: 2
+    m_Bits: 8
+  loseSightLinger: 0.4
   debugLog: 0
   touchEpsilon: 0.03
   microStepSpeed: 0.8
+  destroyDelay: 0.05
 --- !u!114 &4977684496529360798
 MonoBehaviour:
   m_ObjectHideFlags: 0

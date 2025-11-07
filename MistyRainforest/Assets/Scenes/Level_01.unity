@@ -1591,6 +1591,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1646594643}
     - target: {fileID: 1765054208666637390, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
+      propertyPath: aggroDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765054208666637390, guid: 5e9800a5914814979a954240f86aa8c0, type: 3}
       propertyPath: playerPlatform
       value: 
       objectReference: {fileID: 1646594636}

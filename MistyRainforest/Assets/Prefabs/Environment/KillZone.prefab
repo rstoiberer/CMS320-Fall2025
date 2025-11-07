@@ -93,4 +93,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KillZone
   targetMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 192
