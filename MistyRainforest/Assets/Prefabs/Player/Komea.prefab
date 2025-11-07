@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8a5df6dba6d44f3a1ee78670657505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::komeaMovement
+  animator: {fileID: 1846780774157333851}
   moveSpeed: 5
   jumpForce: 7
   artworkFacesRight: 0

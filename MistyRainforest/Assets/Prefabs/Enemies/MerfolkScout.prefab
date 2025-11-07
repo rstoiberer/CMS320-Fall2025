@@ -209,7 +209,7 @@ MonoBehaviour:
   accel: 15
   preferredStopDistance: 0.1
   attackRange: 0.8
-  reactionDelayOnAggro: 0.25
+  reactionDelayOnAggro: 1
   attackWindup: 0.18
   attackActiveTime: 0.15
   attackCooldown: 0.5
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 8742679004101121379}
   - component: {fileID: 5420906401009540761}
   - component: {fileID: 5782021986223674549}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ Transform:
   m_GameObject: {fileID: 6285484377521589003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.68, y: 0, z: 0}
+  m_LocalPosition: {x: -0.7, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
