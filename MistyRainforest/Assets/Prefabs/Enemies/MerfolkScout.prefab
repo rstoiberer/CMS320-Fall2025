@@ -207,17 +207,17 @@ MonoBehaviour:
   aggroDistance: 1.5
   chaseSpeed: 2
   accel: 15
-  preferredStopDistance: 0.55
+  preferredStopDistance: 0.1
   attackRange: 0.8
   reactionDelayOnAggro: 0.25
-  attackWindup: 0.22
-  attackActiveTime: 0.12
-  attackCooldown: 0.6
+  attackWindup: 0.18
+  attackActiveTime: 0.15
+  attackCooldown: 0.5
   attackHitbox: {fileID: 5420906401009540761}
   animator: {fileID: 0}
   requireSamePlatform: 0
   debugLog: 0
-  touchEpsilon: 0.05
+  touchEpsilon: 0.03
   microStepSpeed: 0.8
 --- !u!114 &4977684496529360798
 MonoBehaviour:
@@ -295,8 +295,8 @@ Transform:
   m_GameObject: {fileID: 6285484377521589003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalPosition: {x: -0.68, y: 0, z: 0}
+  m_LocalScale: {x: 2.5, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8093718343929604014}
@@ -351,7 +351,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.28, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -361,5 +361,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
