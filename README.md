@@ -1,8 +1,9 @@
 # 🌿 Misty Rainforest
 
-A short 2D **jump & run platformer** made in Unity.  
-You play as a cursed skeleton warrior exploring a misty rainforest to retrieve the **Blue Pearl** and regain your human form.  
-Three short levels, spooky calm atmosphere, and simple melee combat using your ancient spear.
+Misty Rainforest is a 2D **platformer adventure** built in Unity that follows Komea, a cursed skeleton warrior, on his journey deep into the misty rainforest.  
+The forest is heavily guarded by hostile merfolk that seek to stop intruders.  
+Komea must explore, fight, and navigate through the rainforest to recover the Blue Pearl - the only artifact capable of restoring his human form.
+
 
 ---
 
