@@ -57,29 +57,28 @@ public class KomeaMovement2 : MonoBehaviour
     }
 
     private void FixedUpdate()
-{
-    // Horizontal move
-    body.linearVelocity = new Vector2(moveInput * moveSpeed, body.linearVelocity.y);
-
-    // Robust ground detection: overlap + short ray + physics contact
-    bool isCircleHit = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
-
-    RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.08f, groundLayer);
-    Debug.DrawRay(groundCheck.position, Vector2.down * 0.08f, Color.yellow);
-
-    bool contact = false;
-    var col = GetComponent<Collider2D>();
-    if (col)
     {
-        var cf = new ContactFilter2D();
-        cf.SetLayerMask(groundLayer);
-        cf.useTriggers = false;
-        contact = col.IsTouching(cf);
+        // Horizontal move
+        body.linearVelocity = new Vector2(moveInput * moveSpeed, body.linearVelocity.y);
+
+        // Robust ground detection: overlap + short ray + physics contact
+        bool isCircleHit = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
+
+        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.08f, groundLayer);
+        Debug.DrawRay(groundCheck.position, Vector2.down * 0.08f, Color.yellow);
+
+        bool contact = false;
+        var col = GetComponent<Collider2D>();
+        if (col)
+        {
+            var cf = new ContactFilter2D();
+            cf.SetLayerMask(groundLayer);
+            cf.useTriggers = false;
+            contact = col.IsTouching(cf);
+        }
+
+        isGrounded = isCircleHit || hit.collider != null || contact;
     }
-
-    isGrounded = isCircleHit || hit.collider != null || contact;
-}
-
 
     private void OnDrawGizmosSelected()
     {
