@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3133994825323294959}
   - component: {fileID: 1765054208666637390}
   - component: {fileID: 4977684496529360798}
+  - component: {fileID: 7618353245104710913}
   m_Layer: 6
   m_Name: MerfolkScout
   m_TagString: Enemy
@@ -32,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.08, y: -2.23, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8221340876333112599}
@@ -86,9 +87,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.19530971, g: 0.42819887, b: 0.7264151, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 8175344050805188041, guid: f06ec2bab31c24b3b961ce91308c772e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -135,7 +136,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2.16, y: 3.65}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -210,11 +211,11 @@ MonoBehaviour:
   preferredStopDistance: 0.1
   attackRange: 0.8
   reactionDelayOnAggro: 2
-  attackWindup: 0.3
+  attackWindup: 1
   attackActiveTime: 0.15
   attackCooldown: 0.5
   attackHitbox: {fileID: 5420906401009540761}
-  animator: {fileID: 0}
+  animator: {fileID: 7618353245104710913}
   requireSamePlatform: 0
   verticalTolerance: 0.75
   useLineOfSight: 1
@@ -244,6 +245,28 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   showGizmos: 0
+--- !u!95 &7618353245104710913
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719240428657005770}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe80684876c074bd0bc2696ad60826ba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2000846946944931969
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +292,7 @@ Transform:
   m_GameObject: {fileID: 2000846946944931969}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: -1.27, z: 0}
+  m_LocalPosition: {x: -0.3, y: -1.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
