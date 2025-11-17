@@ -96,7 +96,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.12, y: -2.13, z: 0}
-  m_LocalScale: {x: 0.2625, y: 0.2125, z: 1}
+  m_LocalScale: {x: 0.2825156, y: 0.2598477, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 732468595991527930}
@@ -327,3 +327,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5e28faf534149bb8424c55f52d4381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  animator: {fileID: 1846780774157333851}
+  deathDelay: 1.5
