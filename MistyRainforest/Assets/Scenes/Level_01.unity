@@ -1864,6 +1864,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8970567819097641130, guid: 4f387cfb839854f0ebc50dd037b03fda, type: 3}
   m_PrefabInstance: {fileID: 2150371619683310104}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1646594646 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1846780774157333851, guid: 4f387cfb839854f0ebc50dd037b03fda, type: 3}
+  m_PrefabInstance: {fileID: 2150371619683310104}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1654080482
 GameObject:
   m_ObjectHideFlags: 0
@@ -2788,6 +2793,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6531838834648800588, guid: 4f387cfb839854f0ebc50dd037b03fda, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1646594646}
     - target: {fileID: 7773163312869956750, guid: 4f387cfb839854f0ebc50dd037b03fda, type: 3}
       propertyPath: m_Name
       value: Komea

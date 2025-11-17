@@ -1,0 +1,975 @@
+fileFormatVersion: 2
+guid: 251419b4fa9644515a89cce550907a1f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9092885281703498985
+    second: skeleton_dead_2_-39-removebg-preview_0
+  - first:
+      213: -7312657840483686423
+    second: skeleton_dead_2_-39-removebg-preview_1
+  - first:
+      213: -94509837268424015
+    second: skeleton_dead_2_-39-removebg-preview_2
+  - first:
+      213: 4623897210997447026
+    second: skeleton_dead_2_-39-removebg-preview_3
+  - first:
+      213: -6174790126620028094
+    second: skeleton_dead_2_-39-removebg-preview_4
+  - first:
+      213: 1143539258693538352
+    second: skeleton_dead_2_-39-removebg-preview_5
+  - first:
+      213: 8478661865277638464
+    second: skeleton_dead_2_-39-removebg-preview_6
+  - first:
+      213: -7607908320054043039
+    second: skeleton_dead_2_-39-removebg-preview_7
+  - first:
+      213: 2317440171358023655
+    second: skeleton_dead_2_-39-removebg-preview_8
+  - first:
+      213: -917963434988261576
+    second: skeleton_dead_2_-39-removebg-preview_9
+  - first:
+      213: -2948712982141641160
+    second: skeleton_dead_2_-39-removebg-preview_10
+  - first:
+      213: 5707686377077765770
+    second: skeleton_dead_2_-39-removebg-preview_11
+  - first:
+      213: -7610439757720135188
+    second: skeleton_dead_2_-39-removebg-preview_12
+  - first:
+      213: 7447975388694104320
+    second: skeleton_dead_2_-39-removebg-preview_13
+  - first:
+      213: -7635076088549075978
+    second: skeleton_dead_2_-39-removebg-preview_14
+  - first:
+      213: 279554189618716780
+    second: skeleton_dead_2_-39-removebg-preview_15
+  - first:
+      213: -15838132657813848
+    second: skeleton_dead_2_-39-removebg-preview_16
+  - first:
+      213: 7979579637924171872
+    second: skeleton_dead_2_-39-removebg-preview_17
+  - first:
+      213: -292352044559129404
+    second: skeleton_dead_2_-39-removebg-preview_18
+  - first:
+      213: -1835020804160901960
+    second: skeleton_dead_2_-39-removebg-preview_19
+  - first:
+      213: 267591558819093461
+    second: skeleton_dead_2_-39-removebg-preview_20
+  - first:
+      213: -2355721236018579841
+    second: skeleton_dead_2_-39-removebg-preview_21
+  - first:
+      213: 6628918421262595648
+    second: skeleton_dead_2_-39-removebg-preview_22
+  - first:
+      213: 356560417530768237
+    second: skeleton_dead_2_-39-removebg-preview_23
+  - first:
+      213: 2366999186814340749
+    second: skeleton_dead_2_-39-removebg-preview_24
+  - first:
+      213: -1556961207987912322
+    second: skeleton_dead_2_-39-removebg-preview_25
+  - first:
+      213: -7432894062388142983
+    second: skeleton_dead_2_-39-removebg-preview_26
+  - first:
+      213: 2874413328751689135
+    second: skeleton_dead_2_-39-removebg-preview_27
+  - first:
+      213: -7258222971624772598
+    second: skeleton_dead_2_-39-removebg-preview_28
+  - first:
+      213: 55406051993680963
+    second: skeleton_dead_2_-39-removebg-preview_29
+  - first:
+      213: 7123318857723446711
+    second: skeleton_dead_2_-39-removebg-preview_30
+  - first:
+      213: 2790725580439525450
+    second: skeleton_dead_2_-39-removebg-preview_31
+  - first:
+      213: 3243124533997143684
+    second: skeleton_dead_2_-39-removebg-preview_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 338
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71b6fa033059fc180800000000000000
+      internalID: -9092885281703498985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 312
+        width: 65
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e7aefd2078348a90800000000000000
+      internalID: -7312657840483686423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 345
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bae5d1cdcb30bef0800000000000000
+      internalID: -94509837268424015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 354
+        width: 40
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2791c63d3026b2040800000000000000
+      internalID: 4623897210997447026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 196
+        width: 119
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2435934681dbe4aa0800000000000000
+      internalID: -6174790126620028094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 309
+        width: 39
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0325425a5eaaedf00800000000000000
+      internalID: 1143539258693538352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 291
+        width: 73
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 047468a6b024aa570800000000000000
+      internalID: 8478661865277638464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 240
+        width: 34
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16e907bf0b74b6690800000000000000
+      internalID: -7607908320054043039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 294
+        width: 68
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7efe30abe83392020800000000000000
+      internalID: 2317440171358023655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 164
+        width: 66
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83f2ab49e1db243f0800000000000000
+      internalID: -917963434988261576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 252
+        width: 29
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83e5dda6a211417d0800000000000000
+      internalID: -2948712982141641160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 229
+        width: 28
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a867e03f486c53f40800000000000000
+      internalID: 5707686377077765770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 256
+        width: 58
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce9d498bc59426690800000000000000
+      internalID: -7610439757720135188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_13
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 219
+        width: 54
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 009c6faa7268c5760800000000000000
+      internalID: 7447975388694104320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_14
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 194
+        width: 58
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f314f4ffb2ca0690800000000000000
+      internalID: -7635076088549075978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_15
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 181
+        width: 62
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6022b7ed0d21e300800000000000000
+      internalID: 279554189618716780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_16
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 197
+        width: 62
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a686016d4bb7cff0800000000000000
+      internalID: -15838132657813848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_17
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 159
+        width: 42
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 060196f27692dbe60800000000000000
+      internalID: 7979579637924171872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_18
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 187
+        width: 59
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c4a1ba4d5b51fbf0800000000000000
+      internalID: -292352044559129404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_19
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 137
+        width: 92
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bca98c0d42b886e0800000000000000
+      internalID: -1835020804160901960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_20
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 99
+        width: 48
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5db1e40ea1da6b300800000000000000
+      internalID: 267591558819093461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_21
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 156
+        width: 52
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f76b449540cce4fd0800000000000000
+      internalID: -2355721236018579841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_22
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 143
+        width: 64
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0467660ce26aefb50800000000000000
+      internalID: 6628918421262595648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_23
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 153
+        width: 34
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6be2e38fc1c2f400800000000000000
+      internalID: 356560417530768237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_24
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 102
+        width: 45
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8e05b1383549d020800000000000000
+      internalID: 2366999186814340749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_25
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 64
+        width: 58
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7141dcc700946ae0800000000000000
+      internalID: -1556961207987912322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_26
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 0
+        width: 159
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97c9e3e3b3e09d890800000000000000
+      internalID: -7432894062388142983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_27
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 116
+        width: 59
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fad74e571b7f3e720800000000000000
+      internalID: 2874413328751689135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_28
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 119
+        width: 59
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0ca9bbb9ac954b90800000000000000
+      internalID: -7258222971624772598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_29
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 5
+        width: 118
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34c7d7fb287d4c000800000000000000
+      internalID: 55406051993680963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_30
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 105
+        width: 68
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b5827892cc1bd260800000000000000
+      internalID: 7123318857723446711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_31
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 0
+        width: 73
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4891b72126aab620800000000000000
+      internalID: 2790725580439525450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_dead_2_-39-removebg-preview_32
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 18
+        width: 60
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4860143b494e10d20800000000000000
+      internalID: 3243124533997143684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      skeleton_dead_2_-39-removebg-preview_0: -9092885281703498985
+      skeleton_dead_2_-39-removebg-preview_1: -7312657840483686423
+      skeleton_dead_2_-39-removebg-preview_10: -2948712982141641160
+      skeleton_dead_2_-39-removebg-preview_11: 5707686377077765770
+      skeleton_dead_2_-39-removebg-preview_12: -7610439757720135188
+      skeleton_dead_2_-39-removebg-preview_13: 7447975388694104320
+      skeleton_dead_2_-39-removebg-preview_14: -7635076088549075978
+      skeleton_dead_2_-39-removebg-preview_15: 279554189618716780
+      skeleton_dead_2_-39-removebg-preview_16: -15838132657813848
+      skeleton_dead_2_-39-removebg-preview_17: 7979579637924171872
+      skeleton_dead_2_-39-removebg-preview_18: -292352044559129404
+      skeleton_dead_2_-39-removebg-preview_19: -1835020804160901960
+      skeleton_dead_2_-39-removebg-preview_2: -94509837268424015
+      skeleton_dead_2_-39-removebg-preview_20: 267591558819093461
+      skeleton_dead_2_-39-removebg-preview_21: -2355721236018579841
+      skeleton_dead_2_-39-removebg-preview_22: 6628918421262595648
+      skeleton_dead_2_-39-removebg-preview_23: 356560417530768237
+      skeleton_dead_2_-39-removebg-preview_24: 2366999186814340749
+      skeleton_dead_2_-39-removebg-preview_25: -1556961207987912322
+      skeleton_dead_2_-39-removebg-preview_26: -7432894062388142983
+      skeleton_dead_2_-39-removebg-preview_27: 2874413328751689135
+      skeleton_dead_2_-39-removebg-preview_28: -7258222971624772598
+      skeleton_dead_2_-39-removebg-preview_29: 55406051993680963
+      skeleton_dead_2_-39-removebg-preview_3: 4623897210997447026
+      skeleton_dead_2_-39-removebg-preview_30: 7123318857723446711
+      skeleton_dead_2_-39-removebg-preview_31: 2790725580439525450
+      skeleton_dead_2_-39-removebg-preview_32: 3243124533997143684
+      skeleton_dead_2_-39-removebg-preview_4: -6174790126620028094
+      skeleton_dead_2_-39-removebg-preview_5: 1143539258693538352
+      skeleton_dead_2_-39-removebg-preview_6: 8478661865277638464
+      skeleton_dead_2_-39-removebg-preview_7: -7607908320054043039
+      skeleton_dead_2_-39-removebg-preview_8: 2317440171358023655
+      skeleton_dead_2_-39-removebg-preview_9: -917963434988261576
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
