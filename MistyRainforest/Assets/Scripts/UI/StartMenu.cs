@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class StartMenu : MonoBehaviour
 {
     [Header("Target Scene")]
-    [SerializeField] private string sceneToLoad = "Scene1";
+    [SerializeField] private string sceneToLoad = "Backstory";
 
     [Header("Optional: Select a default button for keyboard/controller")]
     [SerializeField] private Selectable defaultSelectable;

@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
 
     private float nextAttackTime;
     private Vector3 baseLocalPos;
+    public Animator animator;
 
     private void Awake()
     {
@@ -35,7 +36,12 @@ public class PlayerAttack : MonoBehaviour
         if (Time.time >= nextAttackTime && Input.GetKeyDown(KeyCode.J))
         {
             DoHit();
+            animator.SetBool("isAttacking", true);
+            Debug.Log("Attack button pressed! Triggering animation.");
             nextAttackTime = Time.time + 1f / attacksPerSecond;
+        }
+        else{
+            animator.SetBool("isAttacking", false);
         }
     }
 
@@ -45,6 +51,8 @@ public class PlayerAttack : MonoBehaviour
         foreach (var h in hits)
             if (h.TryGetComponent<EnemyHealth>(out var hp))
                 hp.TakeDamage(damage);
+            
+            
     }
 
     private void OnDrawGizmosSelected()
