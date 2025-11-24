@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320bcefc71ec84db095fe73f0276f7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartMenu
-  sceneToLoad: Level_01
+  sceneToLoad: Backstory
   defaultSelectable: {fileID: 1062051813}
 --- !u!4 &711681693
 Transform:
