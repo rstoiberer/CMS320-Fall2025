@@ -11,7 +11,7 @@ public class PlayerAttack : MonoBehaviour
 
     private float nextAttackTime;
     private Vector3 baseLocalPos;
-    public Animator animator;
+    private Animator animator;
 
     private void Awake()
     {
@@ -19,6 +19,7 @@ public class PlayerAttack : MonoBehaviour
         // make sure X is positive so mirroring works cleanly
         baseLocalPos.x = Mathf.Abs(baseLocalPos.x);
         attackPoint.localPosition = baseLocalPos;
+        animator = GetComponentInParent<Animator>();
     }
 
     private void LateUpdate()
@@ -35,13 +36,13 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Time.time >= nextAttackTime && Input.GetKeyDown(KeyCode.J))
         {
-            DoHit();
-            animator.SetBool("isAttacking", true);
-            Debug.Log("Attack button pressed! Triggering animation.");
-            nextAttackTime = Time.time + 1f / attacksPerSecond;
-        }
-        else{
-            animator.SetBool("isAttacking", false);
+        Debug.Log("J pressed, attacking!");
+
+        if (animator != null)
+        animator.SetTrigger("attack");
+
+        DoHit();
+        nextAttackTime = Time.time + 1f / attacksPerSecond;
         }
     }
 

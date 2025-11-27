@@ -53,11 +53,12 @@ public class KomeaMovement2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             body.linearVelocity = new Vector2(body.linearVelocity.x, jumpForce);
-            animator.SetBool("isJumping", true);
         }
-        else{
-            animator.SetBool("isJumping", false);
-        }
+
+
+
+        // 4) animation state: jumping when not grounded
+        animator.SetBool("isJumping", !isGrounded);
     }
 
     private void FixedUpdate()
