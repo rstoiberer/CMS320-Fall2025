@@ -75,6 +75,8 @@ public class EnemyScout : MonoBehaviour
     // detection hysteresis
     private float lastSeenTime = -999f;
 
+    
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -232,13 +234,19 @@ public class EnemyScout : MonoBehaviour
 
         if (debugLog) Debug.Log($"[EnemyScout] {name} StartAttack");
         SetState(State.Attack);
+
+        if (animator != null){
+        animator.SetTrigger("attack");
+        }
+
         StartCoroutine(AttackRoutine());
+
     }
 
     IEnumerator AttackRoutine()
     {
         attacking = true;
-        SetAnim(attack: true);
+        //SetAnim(attack: true);
 
         rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
 
@@ -375,6 +383,9 @@ public class EnemyScout : MonoBehaviour
     {
         if (IsDead) return;
         IsDead = true;
+
+        // Trigger death animation
+        if (animator) animator.SetTrigger("death");
 
         // Stop all movement and collisions
         if (attackHitbox) attackHitbox.enabled = false;
