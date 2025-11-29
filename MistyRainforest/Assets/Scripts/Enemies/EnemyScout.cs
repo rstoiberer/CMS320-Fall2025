@@ -35,24 +35,23 @@ public class EnemyScout : MonoBehaviour
 
     [Header("Detection Options")]
     [SerializeField] private bool requireSamePlatform = true;
-    [SerializeField] private float verticalTolerance = 0.75f;    // NEW: max |dy| to allow detection
-    [SerializeField] private bool useLineOfSight = true;          // NEW: raycast through blockers
-    [SerializeField] private LayerMask losBlockers;               // NEW: set to Platforms/Ground, NOT Player
-    [SerializeField] private float loseSightLinger = 0.4f;        // NEW: hysteresis after LoS lost
+    [SerializeField] private float verticalTolerance = 0.75f;    // max |dy| to allow detection
+    [SerializeField] private bool useLineOfSight = true;         // raycast through blockers
+    [SerializeField] private LayerMask losBlockers;              // set to Platforms/Ground, NOT Player
+    [SerializeField] private float loseSightLinger = 0.4f;       // hysteresis after LoS lost
     [SerializeField] private bool debugLog = false;
 
     [Header("Contact Handling (no shove)")]
     [SerializeField] private float touchEpsilon = 0.03f;
     [SerializeField] private float microStepSpeed = 0.8f;
 
-
     // ---------- DEATH HANDLING ----------
-    public static System.Action<EnemyScout> AnyEnemyDied;  // lets gate detect when an enemy dies
+    public static System.Action<EnemyScout> AnyEnemyDied;
     public bool IsDead { get; private set; }
-    [SerializeField] private float destroyDelay = 0.05f;   // short delay before removing
+    [SerializeField] private float destroyDelay = 0.05f;
 
-
-
+    // Track attack coroutine
+    private Coroutine attackRoutine;
 
     // components / helpers
     private Rigidbody2D rb;
@@ -74,8 +73,6 @@ public class EnemyScout : MonoBehaviour
 
     // detection hysteresis
     private float lastSeenTime = -999f;
-
-    
 
     void Awake()
     {
@@ -122,6 +119,8 @@ public class EnemyScout : MonoBehaviour
         if (player && !playerPlatform)
             playerPlatform = player.GetComponent<PlatformDetector>() ??
                              player.GetComponentsInChildren<PlatformDetector>(true).FirstOrDefault();
+
+        
     }
 
     void FixedUpdate()
@@ -173,7 +172,6 @@ public class EnemyScout : MonoBehaviour
     // ---------- CHASE ----------
     void DoChase()
     {
-        // Update last-seen & decide if we should drop aggro
         if (CanDetectPlayer(out _))
         {
             lastSeenTime = Time.time;
@@ -235,18 +233,17 @@ public class EnemyScout : MonoBehaviour
         if (debugLog) Debug.Log($"[EnemyScout] {name} StartAttack");
         SetState(State.Attack);
 
-        if (animator != null){
-        animator.SetTrigger("attack");
+        if (animator != null)
+        {
+            animator.SetTrigger("attack");
         }
 
-        StartCoroutine(AttackRoutine());
-
+        attackRoutine = StartCoroutine(AttackRoutine());
     }
 
     IEnumerator AttackRoutine()
     {
         attacking = true;
-        //SetAnim(attack: true);
 
         rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
 
@@ -261,6 +258,8 @@ public class EnemyScout : MonoBehaviour
         attacking = false;
         cooldownEndTime = Time.time + attackCooldown;
         SetState(State.Cooldown);
+
+        attackRoutine = null;
     }
 
     // ---------- COOLDOWN ----------
@@ -272,7 +271,6 @@ public class EnemyScout : MonoBehaviour
     }
 
     // ---------- HELPERS ----------
-    // NEW: unified detection with vertical tolerance, platform gate, and optional LOS
     bool CanDetectPlayer(out float dxAbs)
     {
         dxAbs = 999f;
@@ -284,30 +282,23 @@ public class EnemyScout : MonoBehaviour
         float dyAbs = Mathf.Abs(pl.y - me.y);
         dxAbs = Mathf.Abs(pl.x - me.x);
 
-        // must be within horizontal reach
         if (dxAbs > aggroDistance) return false;
-
-        // must be within vertical band (prevents “directly below” aggro)
         if (dyAbs > verticalTolerance) return false;
 
-        // platform constraint if enabled
         if (requireSamePlatform)
         {
             if (playerPlatform == null || selfPlatform == null) return false;
             if (!selfPlatform.IsOnSamePlatformAs(playerPlatform)) return false;
         }
 
-        // optional line-of-sight: platforms should be on losBlockers
         if (useLineOfSight)
         {
             Vector2 dir = (pl - me).normalized;
             float dist = Vector2.Distance(pl, me);
 
-            // IMPORTANT: losBlockers must NOT include the Player layer
             RaycastHit2D hit = Physics2D.Raycast(me, dir, dist, losBlockers);
             if (hit.collider != null)
             {
-                // something blocked the view (platform/wall)
                 if (debugLog) Debug.Log($"[EnemyScout] LoS blocked by {hit.collider.name}");
                 return false;
             }
@@ -321,7 +312,7 @@ public class EnemyScout : MonoBehaviour
         if (selfCol && playerCol)
         {
             var d = Physics2D.Distance(selfCol, playerCol);
-            return d.distance; // <=0 means penetrating
+            return d.distance;
         }
         return Mathf.Abs(player.position.x - transform.position.x);
     }
@@ -370,39 +361,33 @@ public class EnemyScout : MonoBehaviour
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, aggroDistance);
         Gizmos.color = Color.yellow;
-        // visualize vertical tolerance band
         Gizmos.DrawLine(transform.position + Vector3.up * verticalTolerance, transform.position + Vector3.right * aggroDistance + Vector3.up * verticalTolerance);
         Gizmos.DrawLine(transform.position - Vector3.right * aggroDistance + Vector3.up * verticalTolerance, transform.position + Vector3.right * aggroDistance + Vector3.up * verticalTolerance);
         Gizmos.DrawLine(transform.position - Vector3.right * aggroDistance - Vector3.up * verticalTolerance, transform.position + Vector3.right * aggroDistance - Vector3.up * verticalTolerance);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
-    
+
     // ---------- DEATH ----------
     public void Die(string cause = "DeathZone")
     {
         if (IsDead) return;
         IsDead = true;
 
-        // Trigger death animation
-        if (animator) animator.SetTrigger("death");
+        if (animator) animator.SetTrigger("merfolk_dead");
 
-        // Stop all movement and collisions
         if (attackHitbox) attackHitbox.enabled = false;
         if (animator) animator.SetBool("isChasing", false);
-        if (sr) sr.enabled = false;             // hide sprite (optional)
-        if (selfCol) selfCol.enabled = false;   // no collisions
+        if (sr) sr.enabled = false;
+        if (selfCol) selfCol.enabled = false;
         if (rb)
         {
             rb.linearVelocity = Vector2.zero;
             rb.simulated = false;
         }
 
-        // Notify gate or others
         AnyEnemyDied?.Invoke(this);
 
-        // Destroy after short delay
         Destroy(gameObject, destroyDelay);
     }
-
 }
