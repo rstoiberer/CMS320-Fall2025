@@ -11,12 +11,17 @@ public class StartMenu : MonoBehaviour
     [Header("Optional: Select a default button for keyboard/controller")]
     [SerializeField] private Selectable defaultSelectable;
 
+    // For AudioManager
+    AudioManager audioManager;
+
     private void Start()
     {
+
         // Auto-select the button for immediate Enter/Submit support
         if (defaultSelectable != null)
         {
             EventSystem.current.SetSelectedGameObject(defaultSelectable.gameObject);
+            audioManager = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioManager>();
         }
     }
 

@@ -23,11 +23,14 @@ public class gate : MonoBehaviour
     [SerializeField] private float fadeDelay = 0.15f;
     [SerializeField] private float fadeTime  = 0.6f;
 
+
     // --- auto-check for remaining enemies (kept from your version) ---
     [SerializeField] private float checkEvery = 0.25f;
 
     private bool unlocked;
     private bool faded;
+
+    private Level1AudioManager audioManager;
 
     void Awake()
     {
@@ -40,6 +43,11 @@ public class gate : MonoBehaviour
         {
             enterTrigger.isTrigger = true;
             enterTrigger.enabled = false;
+        }
+        GameObject musicObject = GameObject.FindGameObjectWithTag("Level1Music");
+        if (musicObject != null)
+        {
+            audioManager = musicObject.GetComponent<Level1AudioManager>();
         }
     }
 
@@ -72,6 +80,13 @@ public class gate : MonoBehaviour
     {
         if (unlocked) return;
         unlocked = true;
+
+        // Play gate open sound using damageSound from Level1AudioManager
+        if (audioManager != null && audioManager.gateSound != null)
+        {
+            audioManager.PlaySFX(audioManager.gateSound);
+        }
+
         StartCoroutine(UnlockAndFade());
     }
 
