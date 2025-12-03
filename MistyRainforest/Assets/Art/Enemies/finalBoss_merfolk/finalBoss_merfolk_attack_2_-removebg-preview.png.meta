@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cbf035a2d5ea049c3adb2490cd1e54ca
+guid: 85ef622e2fd0d42b9870b806afe84885
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4638499057342810253
-    second: Orazc_Pearl___Ending_-85-removebg-preview_0
+      213: -7605343747799188821
+    second: finalBoss_merfolk_attack_2_-removebg-preview_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Orazc_Pearl___Ending_-85-removebg-preview_0
+      name: finalBoss_merfolk_attack_2_-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 226
-        y: 135
-        width: 156
-        height: 165
+        x: 97
+        y: 29
+        width: 444
+        height: 341
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d8807eb11524f5040800000000000000
-      internalID: 4638499057342810253
+      spriteID: baaf0bdf724647690800000000000000
+      internalID: -7605343747799188821
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Orazc_Pearl___Ending_-85-removebg-preview_0: 4638499057342810253
+      finalBoss_merfolk_attack_2_-removebg-preview_0: -7605343747799188821
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
