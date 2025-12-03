@@ -82,10 +82,10 @@ public class gate : MonoBehaviour
         unlocked = true;
 
         // Play gate open sound using damageSound from Level1AudioManager
-        if (audioManager != null && audioManager.gateSound != null)
-        {
-            audioManager.PlaySFX(audioManager.gateSound);
-        }
+       // if (audioManager != null && audioManager.gateSound != null)
+       // {
+        //    audioManager.PlaySFX(audioManager.gateSound);
+        //}
 
         StartCoroutine(UnlockAndFade());
     }
