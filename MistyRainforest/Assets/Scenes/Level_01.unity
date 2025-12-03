@@ -1129,7 +1129,7 @@ GameObject:
   - component: {fileID: 649694931}
   m_Layer: 0
   m_Name: Music1
-  m_TagString: Level1Music
+  m_TagString: L1Music
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2603,7 +2603,7 @@ GameObject:
   - component: {fileID: 1888267611}
   m_Layer: 0
   m_Name: Gate
-  m_TagString: Level1Music
+  m_TagString: L1Music
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3015,7 +3015,7 @@ GameObject:
   - component: {fileID: 1971058352}
   m_Layer: 0
   m_Name: Sfx1
-  m_TagString: Level1Music
+  m_TagString: L1Music
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3348,7 +3348,7 @@ GameObject:
   - component: {fileID: 2061392458}
   m_Layer: 0
   m_Name: Level1AudioManager
-  m_TagString: Level1Music
+  m_TagString: L1Music
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

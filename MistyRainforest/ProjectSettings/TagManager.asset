@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Music
-  - Level1Music
+  - L1Music
   layers:
   - Default
   - TransparentFX

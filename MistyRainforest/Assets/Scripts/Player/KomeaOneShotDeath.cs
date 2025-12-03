@@ -15,7 +15,7 @@ public class KomeaOneShotDeath : MonoBehaviour
 
     void Start()
     {
-        audioManager2 = GameObject.FindGameObjectWithTag("Level1Music").GetComponent<Level1AudioManager>();
+        audioManager2 = GameObject.FindGameObjectWithTag("L1Music").GetComponent<Level1AudioManager>();
 
     }
 

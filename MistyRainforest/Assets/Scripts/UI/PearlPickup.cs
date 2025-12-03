@@ -1,7 +1,13 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PearlPickup : MonoBehaviour
 {
+    [Header("Target Scene")]
+    [SerializeField] private string sceneToLoad = "Scene1";
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Only react when the Player touches it
@@ -20,5 +26,8 @@ public class PearlPickup : MonoBehaviour
 
         // For now, just hide the pearl so it looks collected
         gameObject.SetActive(false);
+
+        // Simple load (instant)
+        SceneManager.LoadScene(sceneToLoad);
     }
 }
