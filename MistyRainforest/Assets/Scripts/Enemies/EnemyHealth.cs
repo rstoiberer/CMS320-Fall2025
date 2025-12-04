@@ -44,12 +44,22 @@ public class EnemyHealth : MonoBehaviour
     }
 
     private void Die()
+{
+    // Try to call EnemyScout's Die() method if it exists
+    var scout = GetComponent<EnemyScout>();
+    if (scout != null)
     {
-        // disable colliders & logic, then destroy
+        scout.Die("EnemyHealth");
+        // EnemyScout.Die() will handle destruction, so don't do it here
+    }
+    else
+    {
+        // Fallback if no EnemyScout (for other enemy types)
         foreach (var c in GetComponents<Collider2D>()) c.enabled = false;
         var rb = GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = false;
         OnAnyEnemyDied?.Invoke();
         Destroy(gameObject, deathDelay);
     }
+}
 }

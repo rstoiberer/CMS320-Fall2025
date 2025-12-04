@@ -74,6 +74,9 @@ public class EnemyScout : MonoBehaviour
     // detection hysteresis
     private float lastSeenTime = -999f;
 
+    // Audio (merfolk death)
+    private Level1AudioManager audioManager;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -105,6 +108,17 @@ public class EnemyScout : MonoBehaviour
         }
 
         if (attackHitbox) attackHitbox.enabled = false;
+
+        GameObject musicObject = GameObject.Find("Level1AudioManager");
+        if (musicObject != null)
+        {
+            audioManager = musicObject.GetComponent<Level1AudioManager>();
+            Debug.Log("Audio manager found!");
+        }
+        else
+    {
+        Debug.LogWarning("Level1AudioManager GameObject not found!");
+    }
     }
 
     void Start()
@@ -374,8 +388,31 @@ public class EnemyScout : MonoBehaviour
         if (IsDead) return;
         IsDead = true;
 
+        // Animation
         if (animator) animator.SetTrigger("merfolk_dead");
 
+        // Audio
+        //Play damage sound using damageSound from Level1AudioManager
+        // Audio
+Debug.Log("[EnemyScout] Die() called - attempting to play damage sound");
+if (audioManager != null)
+{
+    Debug.Log("[EnemyScout] audioManager found");
+    if (audioManager.damageSound != null)
+    {
+        Debug.Log("[EnemyScout] damageSound assigned, playing now!");
+        audioManager.PlaySFX(audioManager.damageSound);
+    }
+    else
+    {
+        Debug.LogError("[EnemyScout] damageSound is NULL!");
+    }
+}
+else
+{
+    Debug.LogError("[EnemyScout] audioManager is NULL!");
+}
+        
         if (attackHitbox) attackHitbox.enabled = false;
         if (animator) animator.SetBool("isChasing", false);
         if (sr) sr.enabled = false;

@@ -15,7 +15,16 @@ public class KomeaOneShotDeath : MonoBehaviour
 
     void Start()
     {
-        audioManager2 = GameObject.FindGameObjectWithTag("L1Music").GetComponent<Level1AudioManager>();
+        GameObject musicObject = GameObject.Find("Level1AudioManager");
+        if (musicObject != null)
+        {
+            audioManager2 = musicObject.GetComponent<Level1AudioManager>();
+            Debug.Log("Audio manager found!");
+        }
+        else
+    {
+        Debug.LogWarning("Level1AudioManager GameObject not found!");
+    }
 
     }
 
@@ -37,10 +46,10 @@ public class KomeaOneShotDeath : MonoBehaviour
         if (audioManager2 != null)
         {
             Debug.Log("[KomeaOneShotDeath] Attempting to play damage sound...");
-            if (audioManager2.damageSound != null)
+            if (audioManager2.gameOverSound != null)
             {
                 Debug.Log("[KomeaOneShotDeath] damageSound clip is assigned, playing now!");
-                audioManager2.PlaySFX(audioManager2.damageSound);
+                audioManager2.PlaySoundSolo(audioManager2.gameOverSound);
             }
             else
             {

@@ -398,6 +398,135 @@ Transform:
   - {fileID: 1228471336}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &213421528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 213421530}
+  - component: {fileID: 213421529}
+  m_Layer: 0
+  m_Name: Damage
+  m_TagString: L1Music
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &213421529
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213421528}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &213421530
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213421528}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2061392459}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &247104030
 GameObject:
   m_ObjectHideFlags: 0
@@ -3368,9 +3497,11 @@ MonoBehaviour:
   musicSource1: {fileID: 649694931}
   sfxSource1: {fileID: 1971058352}
   gateSfxSource1: {fileID: 1888267611}
+  damageSfxSource1: {fileID: 213421529}
   backgroundMusic1: {fileID: 8300000, guid: be6c12a81426142a0b6238ed20f48cfc, type: 3}
-  damageSound: {fileID: 8300000, guid: 41b5d56f826814e7b8bedc26b5e8e921, type: 3}
+  gameOverSound: {fileID: 8300000, guid: 32eabbb22e01e4b3680709d9712004b7, type: 3}
   gateSound: {fileID: 8300000, guid: 0acff8e473e5c46ecb8807a78bcc233a, type: 3}
+  damageSound: {fileID: 8300000, guid: 33933718b2d1f4e5bbe7f2d2bdea0826, type: 3}
 --- !u!4 &2061392459
 Transform:
   m_ObjectHideFlags: 0
@@ -3387,6 +3518,7 @@ Transform:
   - {fileID: 649694932}
   - {fileID: 1971058353}
   - {fileID: 1888267610}
+  - {fileID: 213421530}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &129916917950187477
@@ -3404,6 +3536,10 @@ PrefabInstance:
     - target: {fileID: 5455804846525232842, guid: 105a536db67ff4c2b9d1eecf57f496ea, type: 3}
       propertyPath: m_Name
       value: GatewallRemovable
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455804846525232842, guid: 105a536db67ff4c2b9d1eecf57f496ea, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 9054621314683914451, guid: 105a536db67ff4c2b9d1eecf57f496ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3527,6 +3663,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1646594646}
+    - target: {fileID: 6531838834648800588, guid: 4f387cfb839854f0ebc50dd037b03fda, type: 3}
+      propertyPath: deathDelay
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7773163312869956750, guid: 4f387cfb839854f0ebc50dd037b03fda, type: 3}
       propertyPath: m_Name
       value: Komea

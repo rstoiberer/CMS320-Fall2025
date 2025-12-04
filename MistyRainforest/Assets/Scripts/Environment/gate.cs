@@ -44,11 +44,16 @@ public class gate : MonoBehaviour
             enterTrigger.isTrigger = true;
             enterTrigger.enabled = false;
         }
-        GameObject musicObject = GameObject.FindGameObjectWithTag("Level1Music");
+        GameObject musicObject = GameObject.Find("Level1AudioManager");
         if (musicObject != null)
         {
             audioManager = musicObject.GetComponent<Level1AudioManager>();
+            Debug.Log("Audio manager found!");
         }
+        else
+    {
+        Debug.LogWarning("Level1AudioManager GameObject not found!");
+    }
     }
 
     private void Start()
@@ -67,8 +72,12 @@ public class gate : MonoBehaviour
 #else
             int alive = FindObjectsOfType<EnemyHealth>(includeInactive: false).Length;
 #endif
+
+Debug.Log($"Enemies remaining: {alive}"); // ADD THIS LINE
+
             if (alive == 0)
             {
+                Debug.Log("All enemies defeated! Unlocking gate."); // ADD THIS LINE
                 Unlock(); // flash + fade away + enable trigger
                 yield break;
             }
@@ -81,11 +90,11 @@ public class gate : MonoBehaviour
         if (unlocked) return;
         unlocked = true;
 
-        // Play gate open sound using damageSound from Level1AudioManager
-       // if (audioManager != null && audioManager.gateSound != null)
-       // {
-        //    audioManager.PlaySFX(audioManager.gateSound);
-        //}
+        //Play gate open sound using damageSound from Level1AudioManager
+        if (audioManager != null && audioManager.gateSound != null)
+        {
+            audioManager.PlaySFX(audioManager.gateSound);
+        }
 
         StartCoroutine(UnlockAndFade());
     }
@@ -150,4 +159,6 @@ public class gate : MonoBehaviour
         if (loadDelay > 0f) yield return new WaitForSeconds(loadDelay);
         SceneManager.LoadScene(nextSceneName);
     }
+
+    
 }
