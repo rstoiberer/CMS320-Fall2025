@@ -1843,12 +1843,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2519035865738945269, guid: 0730239a8faf442a29ba422e8dcf9add, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5887785
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519035865738945269, guid: 0730239a8faf442a29ba422e8dcf9add, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5266867
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519035865738945269, guid: 0730239a8faf442a29ba422e8dcf9add, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3940725
+      value: 3.6018
       objectReference: {fileID: 0}
     - target: {fileID: 2519035865738945269, guid: 0730239a8faf442a29ba422e8dcf9add, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.728429
+      value: 3.9673
       objectReference: {fileID: 0}
     - target: {fileID: 2519035865738945269, guid: 0730239a8faf442a29ba422e8dcf9add, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1885,6 +1893,10 @@ PrefabInstance:
     - target: {fileID: 6583279066401034641, guid: 0730239a8faf442a29ba422e8dcf9add, type: 3}
       propertyPath: m_Name
       value: BossMerfolk
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780312307128645044, guid: 0730239a8faf442a29ba422e8dcf9add, type: 3}
+      propertyPath: maxHealth
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2444,7 +2456,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
