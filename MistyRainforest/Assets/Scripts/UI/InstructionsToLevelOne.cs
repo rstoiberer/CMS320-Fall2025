@@ -5,8 +5,6 @@ public class InstructionsToLevelOne : MonoBehaviour
 {
     [SerializeField] private string sceneName = "Level_01";
 
-
-    // THIS MUST BE PUBLIC so the button can see it
     public void LoadLevel()
     {
         // Start the game timer

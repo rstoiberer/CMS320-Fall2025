@@ -15,7 +15,7 @@ public class KomeaMovement2 : MonoBehaviour
 
     [Header("Ground Check")]
     [SerializeField] private Transform groundCheck;     // assign child
-    [SerializeField] private float groundRadius = 0.12f; // 0.10–0.14
+    [SerializeField] private float groundRadius = 0.12f;
     [SerializeField] private LayerMask groundLayer;     // set to “Ground” in Inspector
 
     private float moveInput;
@@ -28,7 +28,7 @@ public class KomeaMovement2 : MonoBehaviour
 
         body.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         body.interpolation = RigidbodyInterpolation2D.Interpolate;
-        body.freezeRotation = true; // Freeze Z in Inspector is fine too
+        body.freezeRotation = true; 
     }
 
     private void Update()

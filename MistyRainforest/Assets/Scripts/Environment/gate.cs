@@ -4,11 +4,11 @@ using UnityEngine.SceneManagement;
 public class gate : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Collider2D gateCollider;   // blocking collider
+    [SerializeField] private Collider2D gateCollider;   
     [SerializeField] private SpriteRenderer sr;
 
     [Header("Enter Trigger (for scene load)")]
-    [SerializeField] private Collider2D enterTrigger;   // separate collider with IsTrigger = true
+    [SerializeField] private Collider2D enterTrigger;   
     [SerializeField] private string nextSceneName = "Level_02";
     [SerializeField] private float loadDelay = 0.15f;
 
@@ -24,7 +24,6 @@ public class gate : MonoBehaviour
     [SerializeField] private float fadeTime  = 0.6f;
 
 
-    // --- auto-check for remaining enemies (kept from your version) ---
     [SerializeField] private float checkEvery = 0.25f;
 
     private bool unlocked;
@@ -38,7 +37,6 @@ public class gate : MonoBehaviour
         if (!sr) sr = GetComponent<SpriteRenderer>();
         if (sr) sr.color = lockedTint;
 
-        // make sure enter trigger starts disabled
         if (enterTrigger)
         {
             enterTrigger.isTrigger = true;
@@ -73,12 +71,12 @@ public class gate : MonoBehaviour
             int alive = FindObjectsOfType<EnemyHealth>(includeInactive: false).Length;
 #endif
 
-Debug.Log($"Enemies remaining: {alive}"); // ADD THIS LINE
+Debug.Log($"Enemies remaining: {alive}");
 
             if (alive == 0)
             {
-                Debug.Log("All enemies defeated! Unlocking gate."); // ADD THIS LINE
-                Unlock(); // flash + fade away + enable trigger
+                Debug.Log("All enemies defeated! Unlocking gate.");
+                Unlock();
                 yield break;
             }
             yield return wait;
@@ -101,7 +99,6 @@ Debug.Log($"Enemies remaining: {alive}"); // ADD THIS LINE
 
     System.Collections.IEnumerator UnlockAndFade()
     {
-        // Tint + pulse (still blocking)
         if (sr)
         {
             Color from = sr.color;
@@ -120,14 +117,11 @@ Debug.Log($"Enemies remaining: {alive}"); // ADD THIS LINE
             transform.localScale = baseScale;
         }
 
-        // Wait briefly (still blocking)
         yield return new WaitForSeconds(holdUnlocked + fadeDelay);
 
-        // Allow passage and enable enter trigger
-        if (gateCollider) gateCollider.enabled = false;     // no more blocking
-        if (enterTrigger) enterTrigger.enabled = true;      // now we can detect the player walking through
+        if (gateCollider) gateCollider.enabled = false;   
+        if (enterTrigger) enterTrigger.enabled = true;     
 
-        // Fade out sprite
         if (sr)
         {
             Color c = sr.color;
@@ -140,15 +134,14 @@ Debug.Log($"Enemies remaining: {alive}"); // ADD THIS LINE
                 sr.color = c;
                 yield return null;
             }
-            sr.enabled = false; // fully invisible
+            sr.enabled = false;
         }
     }
 
-    // Player walks through the (now enabled) enter trigger
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!unlocked) return;                      // only after unlock
-        if (!other.CompareTag("Player")) return;    // Komea must be Tag = Player
+        if (!unlocked) return;                      
+        if (!other.CompareTag("Player")) return;  
 
         if (!string.IsNullOrEmpty(nextSceneName))
             StartCoroutine(LoadNextAfterDelay());

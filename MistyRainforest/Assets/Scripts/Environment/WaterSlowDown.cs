@@ -7,7 +7,7 @@ public class WaterSlowDown : MonoBehaviour
     [SerializeField] private float jumpMultiplier = 0.6f;
     [SerializeField] private float gravityScaleInWater = 1f;
 
-    private KomeaMovement2 player; // <-- fixed reference to correct class
+    private KomeaMovement2 player;
     private float originalSpeed;
     private float originalJump;
     private float originalGravity;

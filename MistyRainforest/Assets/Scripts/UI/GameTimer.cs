@@ -9,7 +9,6 @@ public class GameTimer : MonoBehaviour
 
     private void Awake()
     {
-        // Make this a Singleton that survives scene changes
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);

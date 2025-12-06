@@ -57,7 +57,6 @@ public void PlayOnce(AudioClip clip)
         }
     }
 
-    // Optional: Manual pause/resume if you need them elsewhere
     public void PauseMusic()
     {
         if (musicSource1 != null)

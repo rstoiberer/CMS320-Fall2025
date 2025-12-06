@@ -50,7 +50,6 @@ public class EnemyHealth : MonoBehaviour
     if (scout != null)
     {
         scout.Die("EnemyHealth");
-        // EnemyScout.Die() will handle destruction, so don't do it here
     }
     else
     {

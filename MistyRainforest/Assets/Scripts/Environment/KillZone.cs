@@ -10,7 +10,6 @@ public class KillZone : MonoBehaviour
         // Only react to specified layers
         if ((targetMask.value & (1 << other.gameObject.layer)) == 0) return;
 
-        // 1) Enemy? -> call Die() so the gate gets the AnyEnemyDied event
         EnemyScout enemy = other.GetComponent<EnemyScout>();
         if (enemy == null) enemy = other.GetComponentInParent<EnemyScout>();
         if (enemy != null)
@@ -19,7 +18,6 @@ public class KillZone : MonoBehaviour
             return;
         }
 
-        // 2) Player? -> keep your existing one-shot death / scene reload
         var death = other.GetComponent<KomeaOneShotDeath>() 
                  ?? other.GetComponentInParent<KomeaOneShotDeath>();
         if (death != null)
@@ -28,7 +26,6 @@ public class KillZone : MonoBehaviour
             return;
         }
 
-        // Anything else that enters can be cleaned up if you want:
         Destroy(other.gameObject);
     }
 }

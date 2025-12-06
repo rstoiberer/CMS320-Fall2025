@@ -17,7 +17,6 @@ public class StartMenu : MonoBehaviour
     private void Start()
     {
 
-        // Auto-select the button for immediate Enter/Submit support
         if (defaultSelectable != null)
         {
             EventSystem.current.SetSelectedGameObject(defaultSelectable.gameObject);
@@ -25,14 +24,12 @@ public class StartMenu : MonoBehaviour
         }
     }
 
-    // Hook this to Button.onClick
     public void StartGame()
     {
         // Simple load (instant)
         SceneManager.LoadScene(sceneToLoad);
     }
 
-    // Optional: allow pressing Escape to quit on desktop
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

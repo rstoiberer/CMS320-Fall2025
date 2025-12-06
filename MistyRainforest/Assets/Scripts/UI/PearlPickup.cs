@@ -24,10 +24,8 @@ public class PearlPickup : MonoBehaviour
             Debug.LogWarning("GameTimer.Instance is null – did you forget to add it to the Backstory scene?");
         }
 
-        // For now, just hide the pearl so it looks collected
         gameObject.SetActive(false);
 
-        // Simple load (instant)
         SceneManager.LoadScene(sceneToLoad);
     }
 }

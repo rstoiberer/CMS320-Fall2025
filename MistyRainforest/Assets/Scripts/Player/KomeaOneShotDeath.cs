@@ -7,7 +7,7 @@ public class KomeaOneShotDeath : MonoBehaviour
     [Header("Death Settings")]
     public Animator animator;
     public float deathDelay = 1.0f;          // time to show death anim
-    public string respawnSceneName = "Level_01"; // <- set this in Inspector if needed
+    public string respawnSceneName = "Level_01"; 
 
     private bool isDying = false;            // prevent double-kill
 
@@ -63,7 +63,7 @@ public class KomeaOneShotDeath : MonoBehaviour
 
 
         // 3) Disable movement script so player can't move while dead
-        var controller = GetComponent<KomeaMovement2>();   // or whatever your script is called
+        var controller = GetComponent<KomeaMovement2>();
         if (controller != null) controller.enabled = false;
 
         // 4) Start delayed respawn
@@ -82,10 +82,9 @@ public class KomeaOneShotDeath : MonoBehaviour
             yield break;
         }
 
-        // Optional: in case you ever pause time on death
         Time.timeScale = 1f;
 
-        // Always go back to Level_01 (or whatever name you assign)
+        // Always go back to Level_01
         SceneManager.LoadScene(respawnSceneName, LoadSceneMode.Single);
     }
 }

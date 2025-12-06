@@ -16,7 +16,6 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         baseLocalPos = attackPoint.localPosition; // remember initial offset
-        // make sure X is positive so mirroring works cleanly
         baseLocalPos.x = Mathf.Abs(baseLocalPos.x);
         attackPoint.localPosition = baseLocalPos;
         animator = GetComponentInParent<Animator>();

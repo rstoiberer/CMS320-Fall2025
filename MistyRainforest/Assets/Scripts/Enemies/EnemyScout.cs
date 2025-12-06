@@ -45,7 +45,6 @@ public class EnemyScout : MonoBehaviour
     [SerializeField] private float touchEpsilon = 0.03f;
     [SerializeField] private float microStepSpeed = 0.8f;
 
-    // ---------- DEATH HANDLING ----------
     public static System.Action<EnemyScout> AnyEnemyDied;
     public bool IsDead { get; private set; }
     [SerializeField] private float destroyDelay = 0.05f;
@@ -53,7 +52,6 @@ public class EnemyScout : MonoBehaviour
     // Track attack coroutine
     private Coroutine attackRoutine;
 
-    // components / helpers
     private Rigidbody2D rb;
     private PlatformDetector selfPlatform;
     private Collider2D selfCol;
@@ -148,7 +146,6 @@ public class EnemyScout : MonoBehaviour
         }
     }
 
-    // ---------- PATROL ----------
     void DoPatrol()
     {
         if (pausing || rb == null || !rb.simulated) return;
@@ -183,7 +180,6 @@ public class EnemyScout : MonoBehaviour
         pausing = false;
     }
 
-    // ---------- CHASE ----------
     void DoChase()
     {
         if (CanDetectPlayer(out _))
@@ -231,7 +227,6 @@ public class EnemyScout : MonoBehaviour
         SetAnim(speed: Mathf.Abs(rb.linearVelocity.x), chasing: true);
     }
 
-    // ---------- ATTACK ----------
     void StartAttack()
     {
         if (attacking) return;
@@ -276,7 +271,6 @@ public class EnemyScout : MonoBehaviour
         attackRoutine = null;
     }
 
-    // ---------- COOLDOWN ----------
     void DoCooldown()
     {
         rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
@@ -284,7 +278,6 @@ public class EnemyScout : MonoBehaviour
             SetState(CanDetectPlayer(out _) ? State.Chase : State.Patrol);
     }
 
-    // ---------- HELPERS ----------
     bool CanDetectPlayer(out float dxAbs)
     {
         dxAbs = 999f;
@@ -382,7 +375,7 @@ public class EnemyScout : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
-    // ---------- DEATH ----------
+
     public void Die(string cause = "DeathZone")
     {
         if (IsDead) return;
@@ -391,9 +384,7 @@ public class EnemyScout : MonoBehaviour
         // Animation
         if (animator) animator.SetTrigger("merfolk_dead");
 
-        // Audio
-        //Play damage sound using damageSound from Level1AudioManager
-        // Audio
+
 Debug.Log("[EnemyScout] Die() called - attempting to play damage sound");
 if (audioManager != null)
 {
