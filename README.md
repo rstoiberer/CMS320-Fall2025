@@ -14,3 +14,12 @@ Komea must explore, fight, and navigate through the rainforest to recover the Bl
 |  **Level & Game Design / General Project Manager** | **Richard Stoiberer** | Layouts, pacing, coordinating the vision |
 |  **Gameplay Programmer / Technical Lead** | **Stella Fruijtier** | Core mechanics, physics, and game systems |
 |  **Artist / Audio & UI Designer** | **Sydney Eckstein** | Sprites, audio, world atmosphere, cutscene |
+
+
+---
+
+## How to play Misty Rainforest
+- Go to Releases
+- Download file MistyRainforestExecutable.zip and decompress
+
+Comment: Some laptops might require further security to open the file. On Mac, go to settings, privacy & security, scroll down, approve opening.
