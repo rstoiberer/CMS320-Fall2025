@@ -23,3 +23,7 @@ Komea must explore, fight, and navigate through the rainforest to recover the Bl
 - Download file MistyRainforestExecutable.zip and decompress
 
 Comment: Some laptops might require further security to open the file. On Mac, go to settings, privacy & security, scroll down, approve opening.
+
+### How to watch Gameplay Recording
+- Go to Realeases
+- Download MistyRainforestGameplay.mov
